@@ -17,6 +17,11 @@ namespace MatrixChallengePos.Views
         }
 
 
+        /// <summary>
+        /// Attempts to log the user on given the password they entered and their employee number.
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void cmdLogon_Click(object sender, EventArgs e)
         {
             if (!int.TryParse(txtEmployeeNumber.Text, out var employeeNbr))

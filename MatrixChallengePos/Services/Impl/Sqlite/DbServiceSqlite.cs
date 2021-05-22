@@ -1,8 +1,4 @@
-﻿using System;
-using System.Data;
-using System.Data.Common;
-using System.Data.SqlClient;
-using System.Diagnostics;
+﻿using System.Data.Common;
 using Microsoft.Data.Sqlite;
 
 namespace MatrixChallengePos.Services.Impl.Sqlite

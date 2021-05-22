@@ -1,5 +1,8 @@
 ﻿namespace MatrixChallengePos.Models
 {
+    /// <summary>
+    /// Represents an employee.
+    /// </summary>
     public class Employee : Person
     {
         private int _id;

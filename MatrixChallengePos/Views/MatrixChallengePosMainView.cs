@@ -5,6 +5,12 @@ using Ninject;
 
 namespace MatrixChallengePos.Views
 {
+    /// <summary>
+    /// Main form of application. Right now it has a single functionality, and
+    /// that is to add products to a transaction.
+    /// Ideally, there will be buttons to bring up a returns usercontrol, among
+    /// other functions.
+    /// </summary>
     public partial class MatrixChallengePosMainView : Form
     {
         private readonly MatrixChallengePosViewModel _viewModel;

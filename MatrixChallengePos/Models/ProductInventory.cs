@@ -1,5 +1,9 @@
 ﻿namespace MatrixChallengePos.Models
 {
+    /// <summary>
+    /// Represents how much of a product the store should have.
+    /// </summary>
+    /// <remarks>Not used for this iteration of the code.</remarks>
     public class ProductInventory
     {
         private Product _product;

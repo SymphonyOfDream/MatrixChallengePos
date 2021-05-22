@@ -2,6 +2,9 @@
 
 namespace MatrixChallengePos.Models
 {
+    /// <summary>
+    /// Represents a customer order (products and their quantities).
+    /// </summary>
     public class Transaction
     {
         private int _id;

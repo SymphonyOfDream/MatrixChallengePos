@@ -1,5 +1,4 @@
 ﻿using System;
-using System.ComponentModel.Design;
 using System.Windows.Forms;
 using MatrixChallengePos.Models;
 using MatrixChallengePos.Services;
@@ -8,11 +7,16 @@ using Ninject;
 
 namespace MatrixChallengePos.Views
 {
+    /// <summary>
+    /// Displays a form where the cashier can search for products the customer
+    /// wants and add them to the transaction, and change the quantity of each
+    /// product.
+    /// </summary>
+    /// <remarks>While we have a database table for Product Inventory, that will
+    /// have to be a future feature.</remarks>
     public partial class PurchaseTransactionControl : UserControl
     {
         private readonly PurchaseTransactionViewModel _viewModel;
-
-        private readonly IProductCategoryService _productCategoryService;
         
         private readonly TransactionLineItemsListControl _transactionLineItemsListControl;
 
@@ -24,7 +28,6 @@ namespace MatrixChallengePos.Views
                                           IProductCategoryService productCategoryService)
         {
             _viewModel = viewModel;
-            _productCategoryService = productCategoryService;
 
             InitializeComponent();
 
@@ -42,7 +45,7 @@ namespace MatrixChallengePos.Views
             grpTransaction.Controls.Add(_transactionLineItemsListControl);
 
             // Add all of our categories to the dropdown
-            _productCategoryService.All.ForEach( c => cboSearchProductCategories.Items.Add(c));
+            productCategoryService.All.ForEach( c => cboSearchProductCategories.Items.Add(c));
             // Create a blank ProductCategory so we have an item we can select to DE-select filtering by Categories.
             cboSearchProductCategories.Items.Insert(0, new ProductCategory(){Name = ""});
         }

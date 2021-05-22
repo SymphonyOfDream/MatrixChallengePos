@@ -4,10 +4,17 @@ using MatrixChallengePos.ViewModels;
 
 namespace MatrixChallengePos.Views
 {
+    /// <summary>
+    /// Form to allow completion of transaction (payment)
+    /// </summary>
     public partial class PayTransactionView : Form
     {
         private readonly PurchaseTransactionViewModel _viewModel;
 
+        /// <summary>
+        /// Sets up the form and Shows the subtotal, tax, and grand total due for the transaction.
+        /// </summary>
+        /// <param name="viewModel"></param>
         public PayTransactionView(PurchaseTransactionViewModel viewModel)
         {
             _viewModel = viewModel;
@@ -22,6 +29,12 @@ namespace MatrixChallengePos.Views
             lblGrandTotal.Text = $"{grandTotal:C2}";
         }
 
+        /// <summary>
+        /// Displays amount due back to the customer, and breaks
+        /// that amount down into discrete monetary amounts for the cashier.
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void txtAmountTendered_TextChanged(object sender, EventArgs e)
         {
             if (decimal.TryParse(txtAmountTendered.Text, out var amountTendered))
@@ -71,6 +84,13 @@ namespace MatrixChallengePos.Views
             DialogResult = DialogResult.Cancel;
         }
 
+        /// <summary>
+        /// Currently nothing more than this is done on Payment complete.
+        /// Ideally, we'll keep track of the cash in the drawer, take
+        /// credit cards and check, in addition to cash.
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void cmdCompleteTransaction_Click(object sender, EventArgs e)
         {
             DialogResult = DialogResult.OK;

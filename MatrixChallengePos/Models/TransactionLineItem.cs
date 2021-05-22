@@ -3,6 +3,9 @@ using System.Globalization;
 
 namespace MatrixChallengePos.Models
 {
+    /// <summary>
+    /// A single product and quantity for a Transaction.
+    /// </summary>
     public class TransactionLineItem
     {
         private int _id;

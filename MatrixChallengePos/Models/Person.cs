@@ -2,6 +2,9 @@
 
 namespace MatrixChallengePos.Models
 {
+    /// <summary>
+    /// Represents a person.
+    /// </summary>
     public class Person
     {
         private int _personId;

@@ -2,6 +2,9 @@
 
 namespace MatrixChallengePos.Models
 {
+    /// <summary>
+    /// Represents the category a product can belong to.
+    /// </summary>
     public class ProductCategory
     {
         private int _id;

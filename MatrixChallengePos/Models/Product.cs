@@ -1,5 +1,8 @@
 ﻿namespace MatrixChallengePos.Models
 {
+    /// <summary>
+    /// A class of item that can be purchased by customers if it is in stock.
+    /// </summary>
     public class Product
     {
         private int _id;
