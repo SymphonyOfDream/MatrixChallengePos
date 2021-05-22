@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Linq;
 using System.Runtime.InteropServices.ComTypes;
 using MatrixChallengePos.Models;
 using Microsoft.Data.Sqlite;
@@ -120,5 +121,9 @@ namespace MatrixChallengePos.Services.Impl.Sqlite
                 ";
             command.Parameters.AddWithValue("$id", item.Id);
         }
+
+
+        public List<ProductCategory> All => _allCategories.Values.ToList();
+
     }
 }

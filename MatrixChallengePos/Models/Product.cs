@@ -51,5 +51,11 @@
             get => _retailPrice;
             set => _retailPrice = value;
         }
+
+
+        public override string ToString()
+        {
+            return _name;
+        }
     }
 }

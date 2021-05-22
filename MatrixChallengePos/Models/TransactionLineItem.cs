@@ -20,6 +20,7 @@ namespace MatrixChallengePos.Models
         public int Id
         {
             get => _id;
+            set => _id = value;
         }
 
         public Product Product

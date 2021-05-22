@@ -1,5 +1,5 @@
 ﻿
-namespace MatrixChallengePos.ViewModels
+namespace MatrixChallengePos.Models
 {
     partial class PurchaseTransaction
     {
@@ -30,12 +30,13 @@ namespace MatrixChallengePos.ViewModels
         private void InitializeComponent()
         {
             this.groupBox1 = new System.Windows.Forms.GroupBox();
+            this.cmdAddFoundProductsToTransaction = new System.Windows.Forms.Button();
+            this.cboSearchProductCategories = new System.Windows.Forms.ComboBox();
+            this.txtSearchProductName = new System.Windows.Forms.TextBox();
             this.label2 = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
             this.lstProductSearchResults = new System.Windows.Forms.ListBox();
-            this.txtSearchProductName = new System.Windows.Forms.TextBox();
-            this.cboSearchProductCategories = new System.Windows.Forms.ComboBox();
-            this.cmdAddFoundProductsToTransaction = new System.Windows.Forms.Button();
+            this.grpTransaction = new System.Windows.Forms.GroupBox();
             this.groupBox1.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -53,6 +54,34 @@ namespace MatrixChallengePos.ViewModels
             this.groupBox1.TabIndex = 1;
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "Product Search";
+            // 
+            // cmdAddFoundProductsToTransaction
+            // 
+            this.cmdAddFoundProductsToTransaction.Enabled = false;
+            this.cmdAddFoundProductsToTransaction.Location = new System.Drawing.Point(24, 328);
+            this.cmdAddFoundProductsToTransaction.Name = "cmdAddFoundProductsToTransaction";
+            this.cmdAddFoundProductsToTransaction.Size = new System.Drawing.Size(186, 23);
+            this.cmdAddFoundProductsToTransaction.TabIndex = 8;
+            this.cmdAddFoundProductsToTransaction.Text = "Add Selected Products";
+            this.cmdAddFoundProductsToTransaction.UseVisualStyleBackColor = true;
+            this.cmdAddFoundProductsToTransaction.Click += new System.EventHandler(this.cmdAddFoundProductsToTransaction_Click);
+            // 
+            // cboSearchProductCategories
+            // 
+            this.cboSearchProductCategories.FormattingEnabled = true;
+            this.cboSearchProductCategories.Location = new System.Drawing.Point(24, 104);
+            this.cboSearchProductCategories.Name = "cboSearchProductCategories";
+            this.cboSearchProductCategories.Size = new System.Drawing.Size(186, 23);
+            this.cboSearchProductCategories.TabIndex = 7;
+            this.cboSearchProductCategories.SelectedIndexChanged += new System.EventHandler(this.cboSearchProductCategories_SelectedIndexChanged);
+            // 
+            // txtSearchProductName
+            // 
+            this.txtSearchProductName.Location = new System.Drawing.Point(24, 50);
+            this.txtSearchProductName.Name = "txtSearchProductName";
+            this.txtSearchProductName.Size = new System.Drawing.Size(186, 23);
+            this.txtSearchProductName.TabIndex = 6;
+            this.txtSearchProductName.TextChanged += new System.EventHandler(this.txtSearchProductName_TextChanged);
             // 
             // label2
             // 
@@ -81,35 +110,22 @@ namespace MatrixChallengePos.ViewModels
             this.lstProductSearchResults.SelectionMode = System.Windows.Forms.SelectionMode.MultiSimple;
             this.lstProductSearchResults.Size = new System.Drawing.Size(189, 169);
             this.lstProductSearchResults.TabIndex = 3;
+            this.lstProductSearchResults.SelectedIndexChanged += new System.EventHandler(this.lstProductSearchResults_SelectedIndexChanged);
             // 
-            // txtSearchProductName
+            // grpTransaction
             // 
-            this.txtSearchProductName.Location = new System.Drawing.Point(24, 50);
-            this.txtSearchProductName.Name = "txtSearchProductName";
-            this.txtSearchProductName.Size = new System.Drawing.Size(186, 23);
-            this.txtSearchProductName.TabIndex = 6;
-            // 
-            // cboSearchProductCategories
-            // 
-            this.cboSearchProductCategories.FormattingEnabled = true;
-            this.cboSearchProductCategories.Location = new System.Drawing.Point(24, 104);
-            this.cboSearchProductCategories.Name = "cboSearchProductCategories";
-            this.cboSearchProductCategories.Size = new System.Drawing.Size(186, 23);
-            this.cboSearchProductCategories.TabIndex = 7;
-            // 
-            // cmdAddFoundProductsToTransaction
-            // 
-            this.cmdAddFoundProductsToTransaction.Location = new System.Drawing.Point(24, 328);
-            this.cmdAddFoundProductsToTransaction.Name = "cmdAddFoundProductsToTransaction";
-            this.cmdAddFoundProductsToTransaction.Size = new System.Drawing.Size(186, 23);
-            this.cmdAddFoundProductsToTransaction.TabIndex = 8;
-            this.cmdAddFoundProductsToTransaction.Text = "Add Selected Products";
-            this.cmdAddFoundProductsToTransaction.UseVisualStyleBackColor = true;
+            this.grpTransaction.Location = new System.Drawing.Point(257, 12);
+            this.grpTransaction.Name = "grpTransaction";
+            this.grpTransaction.Size = new System.Drawing.Size(305, 528);
+            this.grpTransaction.TabIndex = 2;
+            this.grpTransaction.TabStop = false;
+            this.grpTransaction.Text = "Transaction";
             // 
             // PurchaseTransaction
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.Controls.Add(this.grpTransaction);
             this.Controls.Add(this.groupBox1);
             this.Name = "PurchaseTransaction";
             this.Size = new System.Drawing.Size(576, 551);
@@ -128,5 +144,6 @@ namespace MatrixChallengePos.ViewModels
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.ListBox lstProductSearchResults;
+        private System.Windows.Forms.GroupBox grpTransaction;
     }
 }

@@ -1,7 +1,7 @@
 ﻿
 namespace MatrixChallengePos.Views
 {
-    partial class TransactionLineItem
+    partial class TransactionLineItemControl
     {
         /// <summary> 
         /// Required designer variable.
@@ -70,7 +70,7 @@ namespace MatrixChallengePos.Views
             this.cmdAddOne.Text = "+";
             this.cmdAddOne.UseVisualStyleBackColor = true;
             // 
-            // TransactionLineItem
+            // TransactionLineItemControl
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
@@ -78,7 +78,7 @@ namespace MatrixChallengePos.Views
             this.Controls.Add(this.cmdRemoveOne);
             this.Controls.Add(this.cmdDeleteTransaction);
             this.Controls.Add(this.lblTransactionDetails);
-            this.Name = "TransactionLineItem";
+            this.Name = "TransactionLineItemControl";
             this.Size = new System.Drawing.Size(374, 30);
             this.ResumeLayout(false);
 

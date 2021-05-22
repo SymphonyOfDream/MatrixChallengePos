@@ -18,6 +18,12 @@ namespace MatrixChallengePos.Models
             get => _name;
             set => _name = value;
         }
+
+
+        public override string ToString()
+        {
+            return _name;
+        }
     }
 
 }

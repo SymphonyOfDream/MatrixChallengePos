@@ -1,4 +1,5 @@
-﻿using MatrixChallengePos.Models;
+﻿using System.Collections.Generic;
+using MatrixChallengePos.Models;
 
 namespace MatrixChallengePos.Services
 {
@@ -7,5 +8,6 @@ namespace MatrixChallengePos.Services
     /// </summary>
     public interface IProductCategoryService : ICrudService<ProductCategory, int>
     {
+        List<ProductCategory> All { get; }
     }
 }

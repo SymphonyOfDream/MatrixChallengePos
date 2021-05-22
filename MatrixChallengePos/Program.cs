@@ -22,15 +22,15 @@ namespace MatrixChallengePos
             // Ensure the system comes up before presenting the GUI.
             try
             {
-                var kernel = new StandardKernel();
-                kernel.Load(Assembly.GetExecutingAssembly());
+                NinjectKernel = new StandardKernel();
+                NinjectKernel.Load(Assembly.GetExecutingAssembly());
 
                 var system = MatrixChallengePosSystem.Instance;
 
                 Application.SetHighDpiMode(HighDpiMode.SystemAware);
                 Application.EnableVisualStyles();
                 Application.SetCompatibleTextRenderingDefault(false);
-                Application.Run(kernel.Get<MatrixChallengePosMainView>());
+                Application.Run(NinjectKernel.Get<MatrixChallengePosMainView>());
             }
             catch (Exception e)
             {
@@ -42,5 +42,8 @@ namespace MatrixChallengePos
                 throw;
             }
         }
+
+
+        public static StandardKernel NinjectKernel { get; private set; }
     }
 }

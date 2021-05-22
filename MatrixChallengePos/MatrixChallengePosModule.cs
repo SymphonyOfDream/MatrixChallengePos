@@ -1,4 +1,5 @@
-﻿using MatrixChallengePos.Services;
+﻿using MatrixChallengePos.Models;
+using MatrixChallengePos.Services;
 using MatrixChallengePos.Services.Impl;
 using MatrixChallengePos.Services.Impl.Sqlite;
 using MatrixChallengePos.ViewModels;
@@ -26,6 +27,10 @@ namespace MatrixChallengePos
 
             Bind<ILoginService>().To<LoginServiceSqlite>();
 
+
+            Bind<PurchaseTransactionViewModel>().ToSelf().InSingletonScope();
+            Bind<PurchaseTransaction>().ToSelf().InSingletonScope();
+            
             Bind<LoginViewModel>().ToSelf().InSingletonScope();
             Bind<MatrixChallengePosViewModel>().ToSelf().InSingletonScope();
         }

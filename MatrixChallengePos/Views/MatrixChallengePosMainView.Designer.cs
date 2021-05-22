@@ -30,11 +30,12 @@ namespace MatrixChallengePos.Views
         private void InitializeComponent()
         {
             this.toolStrip1 = new System.Windows.Forms.ToolStrip();
-            this.lblLoggedOnEmployeeLabel = new System.Windows.Forms.ToolStripLabel();
-            this.toolStripLabel1 = new System.Windows.Forms.ToolStripLabel();
             this.cmdLogout = new System.Windows.Forms.ToolStripButton();
+            this.toolStripLabel1 = new System.Windows.Forms.ToolStripLabel();
+            this.lblLoggedOnEmployeeLabel = new System.Windows.Forms.ToolStripLabel();
             this.panel1 = new System.Windows.Forms.Panel();
             this.cmdStartPurchase = new System.Windows.Forms.Button();
+            this.pnlUserControl = new System.Windows.Forms.Panel();
             this.toolStrip1.SuspendLayout();
             this.panel1.SuspendLayout();
             this.SuspendLayout();
@@ -48,23 +49,9 @@ namespace MatrixChallengePos.Views
             this.lblLoggedOnEmployeeLabel});
             this.toolStrip1.Location = new System.Drawing.Point(0, 0);
             this.toolStrip1.Name = "toolStrip1";
-            this.toolStrip1.Size = new System.Drawing.Size(926, 25);
+            this.toolStrip1.Size = new System.Drawing.Size(926, 28);
             this.toolStrip1.TabIndex = 0;
             this.toolStrip1.Text = "toolStrip1";
-            // 
-            // lblLoggedOnEmployeeLabel
-            // 
-            this.lblLoggedOnEmployeeLabel.Alignment = System.Windows.Forms.ToolStripItemAlignment.Right;
-            this.lblLoggedOnEmployeeLabel.Name = "lblLoggedOnEmployeeLabel";
-            this.lblLoggedOnEmployeeLabel.Size = new System.Drawing.Size(154, 22);
-            this.lblLoggedOnEmployeeLabel.Text = "Logged in Employee:";
-            // 
-            // toolStripLabel1
-            // 
-            this.toolStripLabel1.Alignment = System.Windows.Forms.ToolStripItemAlignment.Right;
-            this.toolStripLabel1.Name = "toolStripLabel1";
-            this.toolStripLabel1.Size = new System.Drawing.Size(54, 22);
-            this.toolStripLabel1.Text = "NONE";
             // 
             // cmdLogout
             // 
@@ -76,6 +63,20 @@ namespace MatrixChallengePos.Views
             this.cmdLogout.Name = "cmdLogout";
             this.cmdLogout.Size = new System.Drawing.Size(70, 25);
             this.cmdLogout.Text = "Log Out";
+            // 
+            // toolStripLabel1
+            // 
+            this.toolStripLabel1.Alignment = System.Windows.Forms.ToolStripItemAlignment.Right;
+            this.toolStripLabel1.Name = "toolStripLabel1";
+            this.toolStripLabel1.Size = new System.Drawing.Size(54, 25);
+            this.toolStripLabel1.Text = "NONE";
+            // 
+            // lblLoggedOnEmployeeLabel
+            // 
+            this.lblLoggedOnEmployeeLabel.Alignment = System.Windows.Forms.ToolStripItemAlignment.Right;
+            this.lblLoggedOnEmployeeLabel.Name = "lblLoggedOnEmployeeLabel";
+            this.lblLoggedOnEmployeeLabel.Size = new System.Drawing.Size(154, 25);
+            this.lblLoggedOnEmployeeLabel.Text = "Logged in Employee:";
             // 
             // panel1
             // 
@@ -97,12 +98,24 @@ namespace MatrixChallengePos.Views
             this.cmdStartPurchase.TabIndex = 0;
             this.cmdStartPurchase.Text = "Start Purchase Transaction";
             this.cmdStartPurchase.UseVisualStyleBackColor = true;
+            this.cmdStartPurchase.Click += new System.EventHandler(this.cmdStartPurchase_Click);
+            // 
+            // pnlUserControl
+            // 
+            this.pnlUserControl.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.pnlUserControl.Location = new System.Drawing.Point(228, 28);
+            this.pnlUserControl.Name = "pnlUserControl";
+            this.pnlUserControl.Size = new System.Drawing.Size(686, 626);
+            this.pnlUserControl.TabIndex = 2;
             // 
             // MatrixChallengePosMainView
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(926, 666);
+            this.Controls.Add(this.pnlUserControl);
             this.Controls.Add(this.panel1);
             this.Controls.Add(this.toolStrip1);
             this.MaximizeBox = false;
@@ -126,5 +139,6 @@ namespace MatrixChallengePos.Views
         private System.Windows.Forms.ToolStripButton cmdLogout;
         private System.Windows.Forms.Panel panel1;
         private System.Windows.Forms.Button cmdStartPurchase;
+        private System.Windows.Forms.Panel pnlUserControl;
     }
 }

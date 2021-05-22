@@ -157,7 +157,7 @@ namespace MatrixChallengePos.Services.Impl.Sqlite
         {
             var foundProducts = new List<Product>();
 
-            if (string.IsNullOrWhiteSpace(name) || name.Length < 2)
+            if (string.IsNullOrWhiteSpace(name))
                 return foundProducts;
 
             using var command = ((SqliteConnection)DbServiceSqlite.Instance.SqlConnection).CreateCommand();

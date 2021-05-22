@@ -22,8 +22,27 @@ namespace MatrixChallengePos.ViewModels
 
         public List<TransactionLineItem> TransactionLineItems => _transaction.TransactionLineItems;
 
+        public Transaction Transaction => _transaction;
+
         public decimal TransactionSubTotal => _transaction.TransactionSubTotal;
 
+
+        public void AddTransactionLineItem(Product product, int quantity)
+        {
+            _transaction.AddTransactionLineItem(product, quantity);
+        }
+
+
+        public List<Product> FindProductsByName(string name)
+        {
+            return _productService.FindByName(name);
+        }
+
+
+        public List<Product> FindProductsByCategory(ProductCategory productCategory)
+        {
+            return _productService.FindByCategory(productCategory);
+        }
 
     }
 }

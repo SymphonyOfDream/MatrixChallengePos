@@ -25,21 +25,26 @@ namespace MatrixChallengePos.Models
             set => _largestProductNameLen = value;
         }
 
-        public void AddTransactionLineItem(TransactionLineItem item)
+        public void AddTransactionLineItem(Product product, int quantity)
         {
-            var alreadyExistingItem = _transactionLineItems.Find(i => i.Equals(item));
+            var newTransactionLineItem = new TransactionLineItem(this)
+            {
+                Product = product,
+                Quantity = quantity
+            };
+            var alreadyExistingItem = _transactionLineItems.Find(i => i.Equals(newTransactionLineItem));
 
             if (alreadyExistingItem != null)
             {
-                alreadyExistingItem.Quantity += item.Quantity;
+                alreadyExistingItem.Quantity += newTransactionLineItem.Quantity;
             }
             else
             {
-                _transactionLineItems.Add(item);
+                _transactionLineItems.Add(newTransactionLineItem);
 
                 // Get largest
-                if (_largestProductNameLen < item.Product.Name.Length)
-                    _largestProductNameLen = item.Product.Name.Length;
+                if (_largestProductNameLen < newTransactionLineItem.Product.Name.Length)
+                    _largestProductNameLen = newTransactionLineItem.Product.Name.Length;
             }
         }
 
