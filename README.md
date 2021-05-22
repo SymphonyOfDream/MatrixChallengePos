@@ -1,9 +1,6 @@
 # MatrixChallengePos
 DEBUG database setup with employee ID/passwords of
-1 / aaa
-2 / bbb
-3 / ccc
-4 / ddd
+1 / aaa, 2 / bbb, 3 / ccc, and 4 / ddd
 
 Currently uses SQLite for the data store, but that is abstracted away, and an easy change with NINJECT can help adapt to other backends.
 
