@@ -116,7 +116,7 @@ namespace MatrixChallengePos.Models
             // 
             this.grpTransaction.Location = new System.Drawing.Point(257, 12);
             this.grpTransaction.Name = "grpTransaction";
-            this.grpTransaction.Size = new System.Drawing.Size(305, 528);
+            this.grpTransaction.Size = new System.Drawing.Size(415, 528);
             this.grpTransaction.TabIndex = 2;
             this.grpTransaction.TabStop = false;
             this.grpTransaction.Text = "Transaction";
@@ -128,7 +128,7 @@ namespace MatrixChallengePos.Models
             this.Controls.Add(this.grpTransaction);
             this.Controls.Add(this.groupBox1);
             this.Name = "PurchaseTransaction";
-            this.Size = new System.Drawing.Size(576, 551);
+            this.Size = new System.Drawing.Size(697, 551);
             this.groupBox1.ResumeLayout(false);
             this.groupBox1.PerformLayout();
             this.ResumeLayout(false);

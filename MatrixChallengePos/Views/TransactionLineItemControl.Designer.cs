@@ -37,9 +37,10 @@ namespace MatrixChallengePos.Views
             // 
             // lblTransactionDetails
             // 
+            this.lblTransactionDetails.Font = new System.Drawing.Font("Courier New", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             this.lblTransactionDetails.Location = new System.Drawing.Point(52, 7);
             this.lblTransactionDetails.Name = "lblTransactionDetails";
-            this.lblTransactionDetails.Size = new System.Drawing.Size(244, 17);
+            this.lblTransactionDetails.Size = new System.Drawing.Size(207, 19);
             this.lblTransactionDetails.TabIndex = 0;
             this.lblTransactionDetails.Text = "label1";
             // 
@@ -51,10 +52,11 @@ namespace MatrixChallengePos.Views
             this.cmdDeleteTransaction.TabIndex = 1;
             this.cmdDeleteTransaction.Text = "Del";
             this.cmdDeleteTransaction.UseVisualStyleBackColor = true;
+            this.cmdDeleteTransaction.Click += new System.EventHandler(this.cmdDeleteTransaction_Click);
             // 
             // cmdRemoveOne
             // 
-            this.cmdRemoveOne.Location = new System.Drawing.Point(302, 3);
+            this.cmdRemoveOne.Location = new System.Drawing.Point(265, 3);
             this.cmdRemoveOne.Name = "cmdRemoveOne";
             this.cmdRemoveOne.Size = new System.Drawing.Size(29, 23);
             this.cmdRemoveOne.TabIndex = 2;
@@ -63,7 +65,7 @@ namespace MatrixChallengePos.Views
             // 
             // cmdAddOne
             // 
-            this.cmdAddOne.Location = new System.Drawing.Point(337, 3);
+            this.cmdAddOne.Location = new System.Drawing.Point(300, 3);
             this.cmdAddOne.Name = "cmdAddOne";
             this.cmdAddOne.Size = new System.Drawing.Size(29, 23);
             this.cmdAddOne.TabIndex = 3;

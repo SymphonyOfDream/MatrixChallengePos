@@ -1,7 +1,7 @@
 ﻿
 namespace MatrixChallengePos.Views
 {
-    partial class TransactionLineItemsList
+    partial class TransactionLineItemsListControl
     {
         /// <summary> 
         /// Required designer variable.
@@ -31,12 +31,12 @@ namespace MatrixChallengePos.Views
         {
             this.SuspendLayout();
             // 
-            // TransactionLineItemsList
+            // TransactionLineItemsListControl
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.SystemColors.ControlLightLight;
-            this.Name = "TransactionLineItemsList";
+            this.Name = "TransactionLineItemsListControl";
             this.ResumeLayout(false);
 
         }

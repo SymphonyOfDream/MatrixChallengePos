@@ -11,11 +11,11 @@ using MatrixChallengePos.Models;
 
 namespace MatrixChallengePos.Views
 {
-    public partial class TransactionLineItemsList : UserControl
+    public partial class TransactionLineItemsListControl : UserControl
     {
         private ObservableCollection<TransactionLineItem> _items = new ObservableCollection<TransactionLineItem>();
 
-        public TransactionLineItemsList()
+        public TransactionLineItemsListControl()
         {
             InitializeComponent();
 
@@ -26,6 +26,19 @@ namespace MatrixChallengePos.Views
 
         public Collection<TransactionLineItem> Items => _items;
 
+
+        public void AddTransactionLineItem(TransactionLineItem item)
+        {
+            if (!Items.Contains(item))
+            {
+                Items.Add(item);
+            }
+            else
+            {
+                // Item added that already exists, that means that the qty has changed.
+                UpdateVisualization();
+            }
+        }
 
         private void OnItemsCollectionChanged(object sender, NotifyCollectionChangedEventArgs e)
         {

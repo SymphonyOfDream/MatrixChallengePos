@@ -12,7 +12,7 @@ namespace MatrixChallengePos.Models
 
         private readonly IProductCategoryService _productCategoryService;
         
-        private readonly TransactionLineItemsList _transactionLineItemsList;
+        private readonly TransactionLineItemsListControl _transactionLineItemsListControl;
 
 
         public PurchaseTransaction(PurchaseTransactionViewModel viewModel,
@@ -25,15 +25,15 @@ namespace MatrixChallengePos.Models
 
             // Create the user control that will hold all of our TransactionLineItem controls.
             // Quick and dirty sizing due to time constraints.
-            _transactionLineItemsList = new TransactionLineItemsList();
-            _transactionLineItemsList.Anchor =
+            _transactionLineItemsListControl = new TransactionLineItemsListControl();
+            _transactionLineItemsListControl.Anchor =
                 AnchorStyles.Left | AnchorStyles.Top | AnchorStyles.Right | AnchorStyles.Bottom;
-            _transactionLineItemsList.Left = 10;
-            _transactionLineItemsList.Top = 20;
-            _transactionLineItemsList.Width = grpTransaction.Width - 21;
-            _transactionLineItemsList.Height = grpTransaction.Height - 31;
+            _transactionLineItemsListControl.Left = 10;
+            _transactionLineItemsListControl.Top = 20;
+            _transactionLineItemsListControl.Width = grpTransaction.Width - 21;
+            _transactionLineItemsListControl.Height = grpTransaction.Height - 31;
 
-            grpTransaction.Controls.Add(_transactionLineItemsList);
+            grpTransaction.Controls.Add(_transactionLineItemsListControl);
 
             // Add all of our categories to the dropdown
             _productCategoryService.All.ForEach( c => cboSearchProductCategories.Items.Add(c));
@@ -52,7 +52,8 @@ namespace MatrixChallengePos.Models
         {
             foreach (var selectedItem in lstProductSearchResults.SelectedItems)
             {
-                _viewModel.Transaction.AddTransactionLineItem((Product)selectedItem, 1);
+                var transactionLineItem = _viewModel.Transaction.AddTransactionLineItem((Product)selectedItem, 1);
+                _transactionLineItemsListControl.AddTransactionLineItem(transactionLineItem);
             }
         }
 

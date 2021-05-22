@@ -174,15 +174,16 @@ namespace MatrixChallengePos.Services.Impl.Sqlite
 
             while (reader.Read())
             {
-                var productCategoryId = reader.GetInt32(3);
+                var productCategoryId = reader.GetInt32(4);
 
                 var foundProduct = new Product()
                 {
                     Id = reader.GetInt32(0),
-                    Name = reader.IsDBNull(1) ? null : reader.GetString(1),
-                    Description = reader.IsDBNull(2) ? null : reader.GetString(2),
-                    WholesalePrice = reader.GetDecimal(4),
-                    RetailPrice = reader.GetDecimal(5)
+                    Sku = reader.IsDBNull(1) ? null : reader.GetString(1),
+                    Name = reader.IsDBNull(2) ? null : reader.GetString(2),
+                    Description = reader.IsDBNull(3) ? null : reader.GetString(3),
+                    WholesalePrice = reader.GetDecimal(5),
+                    RetailPrice = reader.GetDecimal(6)
                 };
 
                 foundProduct.ProductCategory = _productCategoryService.Get(productCategoryId);
@@ -216,15 +217,16 @@ namespace MatrixChallengePos.Services.Impl.Sqlite
 
             while (reader.Read())
             {
-                var productCategoryId = reader.GetInt32(3);
+                var productCategoryId = reader.GetInt32(4);
 
                 var foundProduct = new Product()
                 {
                     Id = reader.GetInt32(0),
-                    Name = reader.IsDBNull(1) ? null : reader.GetString(1),
-                    Description = reader.IsDBNull(2) ? null : reader.GetString(2),
-                    WholesalePrice = reader.GetDecimal(4),
-                    RetailPrice = reader.GetDecimal(5)
+                    Sku = reader.IsDBNull(1) ? null : reader.GetString(1),
+                    Name = reader.IsDBNull(2) ? null : reader.GetString(2),
+                    Description = reader.IsDBNull(3) ? null : reader.GetString(3),
+                    WholesalePrice = reader.GetDecimal(5),
+                    RetailPrice = reader.GetDecimal(6)
                 };
 
                 foundProduct.ProductCategory = _productCategoryService.Get(productCategoryId);

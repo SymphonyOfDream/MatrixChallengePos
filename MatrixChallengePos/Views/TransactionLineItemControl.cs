@@ -22,7 +22,11 @@ namespace MatrixChallengePos.Views
         public TransactionLineItem TransactionLineItem
         {
             get => _transactionLineItem;
-            set => _transactionLineItem = value;
+            set
+            {
+                _transactionLineItem = value;
+                UpdateVisualization();
+            }
         }
 
 
@@ -52,5 +56,9 @@ namespace MatrixChallengePos.Views
                 temp(this, eventArgs);
         }
 
+        private void cmdDeleteTransaction_Click(object sender, EventArgs e)
+        {
+
+        }
     }
 }
