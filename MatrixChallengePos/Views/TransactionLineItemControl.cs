@@ -12,6 +12,7 @@ namespace MatrixChallengePos.Views
     {
         private TransactionLineItem _transactionLineItem;
         public event EventHandler TransactionLineItemChanged;
+        public event EventHandler TransactionLineItemDeleted;
 
         public TransactionLineItemControl()
         {
@@ -37,6 +38,13 @@ namespace MatrixChallengePos.Views
         }
 
 
+        protected virtual void OnTransactionLineItemDeleted(EventArgs e)
+        {
+            if (TransactionLineItemDeleted != null)
+                TransactionLineItemDeleted(this, e);
+        }
+
+
         protected void UpdateVisualization()
         {
             SuspendLayout();
@@ -58,7 +66,19 @@ namespace MatrixChallengePos.Views
 
         private void cmdDeleteTransaction_Click(object sender, EventArgs e)
         {
+            OnTransactionLineItemDeleted(new EventArgs());
+        }
 
+        private void cmdRemoveOne_Click(object sender, EventArgs e)
+        {
+            _transactionLineItem.Quantity--;
+            UpdateVisualization();
+        }
+
+        private void cmdAddOne_Click(object sender, EventArgs e)
+        {
+            _transactionLineItem.Quantity++;
+            UpdateVisualization();
         }
     }
 }

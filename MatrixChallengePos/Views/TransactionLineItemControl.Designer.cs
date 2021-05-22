@@ -40,7 +40,7 @@ namespace MatrixChallengePos.Views
             this.lblTransactionDetails.Font = new System.Drawing.Font("Courier New", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             this.lblTransactionDetails.Location = new System.Drawing.Point(52, 7);
             this.lblTransactionDetails.Name = "lblTransactionDetails";
-            this.lblTransactionDetails.Size = new System.Drawing.Size(207, 19);
+            this.lblTransactionDetails.Size = new System.Drawing.Size(298, 19);
             this.lblTransactionDetails.TabIndex = 0;
             this.lblTransactionDetails.Text = "label1";
             // 
@@ -56,21 +56,23 @@ namespace MatrixChallengePos.Views
             // 
             // cmdRemoveOne
             // 
-            this.cmdRemoveOne.Location = new System.Drawing.Point(265, 3);
+            this.cmdRemoveOne.Location = new System.Drawing.Point(356, 3);
             this.cmdRemoveOne.Name = "cmdRemoveOne";
             this.cmdRemoveOne.Size = new System.Drawing.Size(29, 23);
             this.cmdRemoveOne.TabIndex = 2;
             this.cmdRemoveOne.Text = "-";
             this.cmdRemoveOne.UseVisualStyleBackColor = true;
+            this.cmdRemoveOne.Click += new System.EventHandler(this.cmdRemoveOne_Click);
             // 
             // cmdAddOne
             // 
-            this.cmdAddOne.Location = new System.Drawing.Point(300, 3);
+            this.cmdAddOne.Location = new System.Drawing.Point(391, 3);
             this.cmdAddOne.Name = "cmdAddOne";
             this.cmdAddOne.Size = new System.Drawing.Size(29, 23);
             this.cmdAddOne.TabIndex = 3;
             this.cmdAddOne.Text = "+";
             this.cmdAddOne.UseVisualStyleBackColor = true;
+            this.cmdAddOne.Click += new System.EventHandler(this.cmdAddOne_Click);
             // 
             // TransactionLineItemControl
             // 
@@ -81,7 +83,7 @@ namespace MatrixChallengePos.Views
             this.Controls.Add(this.cmdDeleteTransaction);
             this.Controls.Add(this.lblTransactionDetails);
             this.Name = "TransactionLineItemControl";
-            this.Size = new System.Drawing.Size(374, 30);
+            this.Size = new System.Drawing.Size(429, 30);
             this.ResumeLayout(false);
 
         }

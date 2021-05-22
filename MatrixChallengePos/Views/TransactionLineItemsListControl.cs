@@ -1,16 +1,13 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Collections.ObjectModel;
+﻿using System.Collections.ObjectModel;
 using System.Collections.Specialized;
-using System.ComponentModel;
-using System.Data;
-using System.Drawing;
-using System.Text;
 using System.Windows.Forms;
 using MatrixChallengePos.Models;
 
 namespace MatrixChallengePos.Views
 {
+    /// <summary>
+    /// Holds a list of our TransactionLineItemControl controls.
+    /// </summary>
     public partial class TransactionLineItemsListControl : UserControl
     {
         private ObservableCollection<TransactionLineItem> _items = new ObservableCollection<TransactionLineItem>();
@@ -53,6 +50,7 @@ namespace MatrixChallengePos.Views
             foreach (var item in _items)
             {
                 var control = new TransactionLineItemControl { TransactionLineItem = item, Dock = DockStyle.Top };
+                control.TransactionLineItemDeleted += Control_TransactionLineItemDeleted;
                 Controls.Add(control);
                 Controls.SetChildIndex(control, 0);
             }
@@ -60,5 +58,13 @@ namespace MatrixChallengePos.Views
             ResumeLayout();
         }
 
+        private void Control_TransactionLineItemDeleted(object sender, System.EventArgs e)
+        {
+            var doomedOne = (TransactionLineItemControl) sender;
+            doomedOne.TransactionLineItemDeleted -= Control_TransactionLineItemDeleted;
+            doomedOne.TransactionLineItem.Quantity = 0;
+            Items.Remove(doomedOne.TransactionLineItem);
+            Controls.Remove(doomedOne);
+        }
     }
 }

@@ -52,7 +52,7 @@ namespace MatrixChallengePos.Models
         {
             return _product.Name.PadRight(_owningTransaction.LargestProductNameLen + 4)
                    + "x " + _quantity.ToString().PadRight(4)
-                   + "$" + $"{TransactionSubTotal:C2}".PadLeft(6);
+                   + $"{TransactionSubTotal:C2}".PadLeft(6);
         }
 
 
