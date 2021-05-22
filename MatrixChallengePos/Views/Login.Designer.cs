@@ -1,7 +1,7 @@
 ﻿
 namespace MatrixChallengePos.Views
 {
-    partial class Logon
+    partial class LoginView
     {
         /// <summary>
         ///  Required designer variable.
@@ -43,7 +43,7 @@ namespace MatrixChallengePos.Views
             this.cmdLogon.Name = "cmdLogon";
             this.cmdLogon.Size = new System.Drawing.Size(118, 23);
             this.cmdLogon.TabIndex = 0;
-            this.cmdLogon.Text = "Logon";
+            this.cmdLogon.Text = "LoginView";
             this.cmdLogon.UseVisualStyleBackColor = true;
             this.cmdLogon.Click += new System.EventHandler(this.cmdLogon_Click);
             // 
@@ -82,7 +82,7 @@ namespace MatrixChallengePos.Views
             this.txtPassword.Size = new System.Drawing.Size(261, 29);
             this.txtPassword.TabIndex = 3;
             // 
-            // Logon
+            // LoginView
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
@@ -95,9 +95,9 @@ namespace MatrixChallengePos.Views
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedDialog;
             this.MaximizeBox = false;
             this.MinimizeBox = false;
-            this.Name = "Logon";
+            this.Name = "LoginView";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
-            this.Text = "Logon";
+            this.Text = "LoginView";
             this.ResumeLayout(false);
             this.PerformLayout();
 

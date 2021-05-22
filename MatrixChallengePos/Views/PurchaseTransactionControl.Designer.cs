@@ -1,7 +1,7 @@
 ﻿
-namespace MatrixChallengePos.Models
+namespace MatrixChallengePos.Views
 {
-    partial class PurchaseTransaction
+    partial class PurchaseTransactionControl
     {
         /// <summary> 
         /// Required designer variable.
@@ -37,6 +37,14 @@ namespace MatrixChallengePos.Models
             this.label1 = new System.Windows.Forms.Label();
             this.lstProductSearchResults = new System.Windows.Forms.ListBox();
             this.grpTransaction = new System.Windows.Forms.GroupBox();
+            this.label3 = new System.Windows.Forms.Label();
+            this.lblTransactionSubtotal = new System.Windows.Forms.Label();
+            this.label4 = new System.Windows.Forms.Label();
+            this.lblTransactionTax = new System.Windows.Forms.Label();
+            this.lblTransactionTotal = new System.Windows.Forms.Label();
+            this.label6 = new System.Windows.Forms.Label();
+            this.cmdPay = new System.Windows.Forms.Button();
+            this.cmdCancelTransaction = new System.Windows.Forms.Button();
             this.groupBox1.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -115,24 +123,107 @@ namespace MatrixChallengePos.Models
             // 
             // grpTransaction
             // 
-            this.grpTransaction.Location = new System.Drawing.Point(257, 12);
+            this.grpTransaction.Location = new System.Drawing.Point(257, 11);
             this.grpTransaction.Name = "grpTransaction";
-            this.grpTransaction.Size = new System.Drawing.Size(474, 528);
+            this.grpTransaction.Size = new System.Drawing.Size(474, 438);
             this.grpTransaction.TabIndex = 2;
             this.grpTransaction.TabStop = false;
             this.grpTransaction.Text = "Transaction";
             // 
-            // PurchaseTransaction
+            // label3
+            // 
+            this.label3.AutoSize = true;
+            this.label3.Location = new System.Drawing.Point(483, 463);
+            this.label3.Name = "label3";
+            this.label3.Size = new System.Drawing.Size(117, 15);
+            this.label3.TabIndex = 3;
+            this.label3.Text = "Transaction Subtotal:";
+            // 
+            // lblTransactionSubtotal
+            // 
+            this.lblTransactionSubtotal.Location = new System.Drawing.Point(606, 463);
+            this.lblTransactionSubtotal.Name = "lblTransactionSubtotal";
+            this.lblTransactionSubtotal.Size = new System.Drawing.Size(125, 18);
+            this.lblTransactionSubtotal.TabIndex = 4;
+            this.lblTransactionSubtotal.Text = "0";
+            this.lblTransactionSubtotal.TextAlign = System.Drawing.ContentAlignment.TopRight;
+            // 
+            // label4
+            // 
+            this.label4.AutoSize = true;
+            this.label4.Location = new System.Drawing.Point(483, 497);
+            this.label4.Name = "label4";
+            this.label4.Size = new System.Drawing.Size(90, 15);
+            this.label4.TabIndex = 5;
+            this.label4.Text = "Transaction Tax:";
+            // 
+            // lblTransactionTax
+            // 
+            this.lblTransactionTax.Location = new System.Drawing.Point(606, 497);
+            this.lblTransactionTax.Name = "lblTransactionTax";
+            this.lblTransactionTax.Size = new System.Drawing.Size(125, 18);
+            this.lblTransactionTax.TabIndex = 6;
+            this.lblTransactionTax.Text = "0";
+            this.lblTransactionTax.TextAlign = System.Drawing.ContentAlignment.TopRight;
+            // 
+            // lblTransactionTotal
+            // 
+            this.lblTransactionTotal.Location = new System.Drawing.Point(606, 529);
+            this.lblTransactionTotal.Name = "lblTransactionTotal";
+            this.lblTransactionTotal.Size = new System.Drawing.Size(125, 18);
+            this.lblTransactionTotal.TabIndex = 8;
+            this.lblTransactionTotal.Text = "0";
+            this.lblTransactionTotal.TextAlign = System.Drawing.ContentAlignment.TopRight;
+            // 
+            // label6
+            // 
+            this.label6.AutoSize = true;
+            this.label6.Location = new System.Drawing.Point(483, 529);
+            this.label6.Name = "label6";
+            this.label6.Size = new System.Drawing.Size(98, 15);
+            this.label6.TabIndex = 7;
+            this.label6.Text = "Transaction Total:";
+            // 
+            // cmdPay
+            // 
+            this.cmdPay.Location = new System.Drawing.Point(267, 497);
+            this.cmdPay.Name = "cmdPay";
+            this.cmdPay.Size = new System.Drawing.Size(115, 47);
+            this.cmdPay.TabIndex = 9;
+            this.cmdPay.Text = "Pay";
+            this.cmdPay.UseVisualStyleBackColor = true;
+            this.cmdPay.Click += new System.EventHandler(this.cmdPay_Click);
+            // 
+            // cmdCancelTransaction
+            // 
+            this.cmdCancelTransaction.Location = new System.Drawing.Point(14, 497);
+            this.cmdCancelTransaction.Name = "cmdCancelTransaction";
+            this.cmdCancelTransaction.Size = new System.Drawing.Size(127, 47);
+            this.cmdCancelTransaction.TabIndex = 10;
+            this.cmdCancelTransaction.Text = "Cancel Transaction";
+            this.cmdCancelTransaction.UseVisualStyleBackColor = true;
+            this.cmdCancelTransaction.Click += new System.EventHandler(this.cmdCancelTransaction_Click);
+            // 
+            // PurchaseTransactionControl
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.Controls.Add(this.cmdCancelTransaction);
+            this.Controls.Add(this.cmdPay);
+            this.Controls.Add(this.lblTransactionTotal);
+            this.Controls.Add(this.label6);
+            this.Controls.Add(this.lblTransactionTax);
+            this.Controls.Add(this.label4);
+            this.Controls.Add(this.lblTransactionSubtotal);
+            this.Controls.Add(this.label3);
             this.Controls.Add(this.grpTransaction);
             this.Controls.Add(this.groupBox1);
-            this.Name = "PurchaseTransaction";
+            this.Name = "PurchaseTransactionControl";
             this.Size = new System.Drawing.Size(787, 551);
             this.groupBox1.ResumeLayout(false);
             this.groupBox1.PerformLayout();
             this.ResumeLayout(false);
+            this.PerformLayout();
 
         }
 
@@ -146,5 +237,13 @@ namespace MatrixChallengePos.Models
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.ListBox lstProductSearchResults;
         private System.Windows.Forms.GroupBox grpTransaction;
+        private System.Windows.Forms.Label label3;
+        private System.Windows.Forms.Label lblTransactionSubtotal;
+        private System.Windows.Forms.Label label4;
+        private System.Windows.Forms.Label lblTransactionTax;
+        private System.Windows.Forms.Label lblTransactionTotal;
+        private System.Windows.Forms.Label label6;
+        private System.Windows.Forms.Button cmdPay;
+        private System.Windows.Forms.Button cmdCancelTransaction;
     }
 }

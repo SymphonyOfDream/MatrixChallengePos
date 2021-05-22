@@ -166,9 +166,9 @@ namespace MatrixChallengePos.Services.Impl.Sqlite
                 @"
                 SELECT product_id, sku_tx, name_tx, description_tx, product_category_id, wholesale_price_val, retail_price_val
                 FROM Products
-                WHERE name_tx LIKE '%$name%';
+                WHERE name_tx LIKE $name;
                 ";
-            command.Parameters.AddWithValue("$name", name);
+            command.Parameters.AddWithValue("$name", '%' + name + '%');
 
             using var reader = command.ExecuteReader();
 

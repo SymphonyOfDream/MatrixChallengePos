@@ -1,24 +1,15 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
-using System.Drawing;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Forms;
-using MatrixChallengePos.Services;
-using MatrixChallengePos.Services.Impl.Sqlite;
 using MatrixChallengePos.ViewModels;
 
 namespace MatrixChallengePos.Views
 {
-    public partial class Logon : Form
+    public partial class LoginView : Form
     {
         private readonly LoginViewModel _loginViewModel;
 
 
-        public Logon(LoginViewModel loginViewModel)
+        public LoginView(LoginViewModel loginViewModel)
         {
             _loginViewModel = loginViewModel;
 
@@ -31,11 +22,13 @@ namespace MatrixChallengePos.Views
             if (!int.TryParse(txtEmployeeNumber.Text, out var employeeNbr))
             {
                 MessageBox.Show("Employee Number entered is not a valid Employee Number. It must be a number.");
+                return;
             }
 
             if (_loginViewModel.AttemptLogon(employeeNbr, txtPassword.Text))
             {
                 Close();
+                return;
             }
 
             MessageBox.Show("Invalid Employee Number and/or Password.");

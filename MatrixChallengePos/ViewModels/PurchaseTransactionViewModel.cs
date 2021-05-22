@@ -9,7 +9,7 @@ namespace MatrixChallengePos.ViewModels
         private readonly IProductService _productService;
         private readonly IProductInventoryService _productInventoryService;
 
-        private readonly Transaction _transaction = new Transaction();
+        private Transaction _transaction = new Transaction();
 
 
         public PurchaseTransactionViewModel(IProductService productService,
@@ -19,12 +19,21 @@ namespace MatrixChallengePos.ViewModels
             _productInventoryService = productInventoryService;
         }
 
+        public void Clear()
+        {
+            _transaction = new Transaction();
+        }
 
         public List<TransactionLineItem> TransactionLineItems => _transaction.TransactionLineItems;
 
         public Transaction Transaction => _transaction;
 
         public decimal TransactionSubTotal => _transaction.TransactionSubTotal;
+
+        public decimal TransactionTax => _transaction.TransactionSubTotal * (decimal)0.075;
+
+        public decimal TransactionGrandTotal => TransactionSubTotal + TransactionTax;
+
 
 
         public void AddTransactionLineItem(Product product, int quantity)

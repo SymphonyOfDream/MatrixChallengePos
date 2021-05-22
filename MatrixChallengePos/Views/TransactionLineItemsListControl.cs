@@ -1,4 +1,5 @@
-﻿using System.Collections.ObjectModel;
+﻿using System;
+using System.Collections.ObjectModel;
 using System.Collections.Specialized;
 using System.Windows.Forms;
 using MatrixChallengePos.Models;
@@ -11,6 +12,7 @@ namespace MatrixChallengePos.Views
     public partial class TransactionLineItemsListControl : UserControl
     {
         private ObservableCollection<TransactionLineItem> _items = new ObservableCollection<TransactionLineItem>();
+        public event EventHandler TransactionLineItemListChanged;
 
         public TransactionLineItemsListControl()
         {
@@ -18,6 +20,11 @@ namespace MatrixChallengePos.Views
 
             AutoScroll = true;
             _items.CollectionChanged += OnItemsCollectionChanged;
+        }
+
+        public void Clear()
+        {
+            Items.Clear();
         }
 
 
@@ -56,8 +63,17 @@ namespace MatrixChallengePos.Views
             }
 
             ResumeLayout();
+
+            OnTransactionLineItemListChanged(new EventArgs());
         }
 
+        protected virtual void OnTransactionLineItemListChanged(EventArgs e)
+        {
+            if (TransactionLineItemListChanged != null)
+                TransactionLineItemListChanged(this, e);
+        }
+
+        
         private void Control_TransactionLineItemDeleted(object sender, System.EventArgs e)
         {
             var doomedOne = (TransactionLineItemControl) sender;

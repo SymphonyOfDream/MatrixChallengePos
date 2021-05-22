@@ -1,12 +1,14 @@
 ﻿using System;
+using System.ComponentModel.Design;
 using System.Windows.Forms;
+using MatrixChallengePos.Models;
 using MatrixChallengePos.Services;
 using MatrixChallengePos.ViewModels;
-using MatrixChallengePos.Views;
+using Ninject;
 
-namespace MatrixChallengePos.Models
+namespace MatrixChallengePos.Views
 {
-    public partial class PurchaseTransaction : UserControl
+    public partial class PurchaseTransactionControl : UserControl
     {
         private readonly PurchaseTransactionViewModel _viewModel;
 
@@ -14,9 +16,12 @@ namespace MatrixChallengePos.Models
         
         private readonly TransactionLineItemsListControl _transactionLineItemsListControl;
 
+        public event EventHandler TransactionCanceled;
+        public event EventHandler TransactionCompleted;
 
-        public PurchaseTransaction(PurchaseTransactionViewModel viewModel,
-                                   IProductCategoryService productCategoryService)
+
+        public PurchaseTransactionControl(PurchaseTransactionViewModel viewModel,
+                                          IProductCategoryService productCategoryService)
         {
             _viewModel = viewModel;
             _productCategoryService = productCategoryService;
@@ -32,7 +37,8 @@ namespace MatrixChallengePos.Models
             _transactionLineItemsListControl.Top = 20;
             _transactionLineItemsListControl.Width = grpTransaction.Width - 21;
             _transactionLineItemsListControl.Height = grpTransaction.Height - 31;
-
+            _transactionLineItemsListControl.TransactionLineItemListChanged += TransactionLineItemsListControl_TransactionLineItemListChanged;
+            
             grpTransaction.Controls.Add(_transactionLineItemsListControl);
 
             // Add all of our categories to the dropdown
@@ -41,7 +47,29 @@ namespace MatrixChallengePos.Models
             cboSearchProductCategories.Items.Insert(0, new ProductCategory(){Name = ""});
         }
 
+        private void TransactionLineItemsListControl_TransactionLineItemListChanged(object sender, EventArgs e)
+        {
+            var subtotal = _viewModel.TransactionSubTotal;
+            lblTransactionSubtotal.Text = $"{subtotal:C2}";
+            var tax = _viewModel.TransactionTax;
+            lblTransactionTax.Text = $"{tax:C2}";
+            var grandTotal = _viewModel.TransactionGrandTotal;
+            lblTransactionTotal.Text = $"{grandTotal:C2}";
+        }
 
+        protected virtual void OnTransactionCanceled(EventArgs eventArgs)
+        {
+            if (TransactionCanceled != null)
+                TransactionCanceled(this, eventArgs);
+        }
+
+        protected virtual void OnTransactionCompleted(EventArgs eventArgs)
+        {
+            if (TransactionCompleted != null)
+                TransactionCompleted(this, eventArgs);
+        }
+
+        
         private void lstProductSearchResults_SelectedIndexChanged(object sender, EventArgs e)
         {
             cmdAddFoundProductsToTransaction.Enabled = lstProductSearchResults.SelectedItems.Count > 0;
@@ -66,6 +94,7 @@ namespace MatrixChallengePos.Models
             foundProducts.ForEach(p => lstProductSearchResults.Items.Add(p));
         }
 
+
         private void cboSearchProductCategories_SelectedIndexChanged(object sender, EventArgs e)
         {
             txtSearchProductName.Text = string.Empty;
@@ -73,6 +102,33 @@ namespace MatrixChallengePos.Models
 
             var foundProducts = _viewModel.FindProductsByCategory((ProductCategory)cboSearchProductCategories.SelectedItem);
             foundProducts.ForEach(p => lstProductSearchResults.Items.Add(p));
+        }
+
+
+        private void DoClearTransaction()
+        {
+            lstProductSearchResults.Items.Clear();
+            _viewModel.Clear();
+            _transactionLineItemsListControl.Clear();
+            _transactionLineItemsListControl.TransactionLineItemListChanged -= TransactionLineItemsListControl_TransactionLineItemListChanged;
+        }
+
+
+        private void cmdCancelTransaction_Click(object sender, EventArgs e)
+        {
+            DoClearTransaction();
+            OnTransactionCanceled(new EventArgs());
+        }
+
+
+        private void cmdPay_Click(object sender, EventArgs e)
+        {
+            DialogResult rc = Program.NinjectKernel.Get<PayTransactionView>().ShowDialog();
+            if (rc == DialogResult.OK)
+            {
+                DoClearTransaction();
+                OnTransactionCompleted(new EventArgs());
+            }
         }
     }
 }

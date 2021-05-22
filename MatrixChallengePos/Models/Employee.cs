@@ -24,5 +24,10 @@
             get => _salt;
             set => _salt = value;
         }
+
+        public override string ToString()
+        {
+            return $"{LastName}, {FirstName} ({_id})";
+        }
     }
 }
